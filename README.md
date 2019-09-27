@@ -120,5 +120,27 @@ STUN https://www.voip-info.org/stun/
 
 
 
+Https: [https://github.com/Neilpang/acme.sh/wiki/%E8%AF%B4%E6%98%8E](https://github.com/Neilpang/acme.sh/wiki/说明)
+
+Nginx:
+
+```
+   location / {
+           root /home/lishulong/fss/freeswitch/sip;
+           index index.htm;
+   }
+```
+
+
+操作视频：
+[点这里](video/sipml5.mov)
+
+wss://thinking.mobi:7443
+[{ url: 'stun:stun.l.google.com:19302'}]
+sip:1000@188.131.171.145
+
+![image-20190927115209836](img/image-20190927115209836.png)
+![image-20190927115242702](img/image-20190927115242702.png)
+
 
 
