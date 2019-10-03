@@ -5,6 +5,7 @@ import requests
 
 
 def get(url):
+    """https://www.mycqzx.com:65/20190914/FsKCJvDf/2000kb/hls/index.m3u8"""
     print(url)
     if not url:
         return None
@@ -13,6 +14,7 @@ def get(url):
 
 
 if __name__ == '__main__':
+
     index_m3u8 = input("please input m3u8 url:")
 
     from urllib.parse import urlparse
@@ -31,18 +33,18 @@ if __name__ == '__main__':
         fs = [f'{netloc}/{i}' for i in fs if i and not i.startswith('#')]
     if fs:
         pool = ThreadPool(20)
-        _ = pool.map(get, fs)
+        # _ = pool.map(get, fs)
 
     with open('index.mp4', 'wb') as f:
         for i in fs:
+            k = i
+            s = i.split('/')[-1]
             if not i:
                 continue
             try:
-                i = i.split('/')[-1]
-                f.write(open(f'./data/{i}', 'rb').read())
+                f.write(open(f'./data/{s}', 'rb').read())
             except Exception as e:
                 print(e)
-                get(i)
-                i = i.split('/')[-1]
-                f.write(open(f'./data/{i}', 'rb').read())
+                get(k)
+                f.write(open(f'./data/{s}', 'rb').read())
     print('success')
